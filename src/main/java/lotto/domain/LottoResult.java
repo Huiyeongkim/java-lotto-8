@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 
 public class LottoResult {
 
-    private static final int LOTTO_PRICE = 1000;
-
     private final Map<Rank, Integer> rankCounts;
     private final int totalAmount;
 
@@ -27,6 +25,21 @@ public class LottoResult {
                         rank -> rank,
                         rank -> countLottoResult.getOrDefault(rank, 0L).intValue()
                 ));
+    }
+
+    public int getRankCount(Rank rank) {
+        return rankCounts.getOrDefault(rank, 0);
+    }
+
+    public double calculateProfitRate() {
+        long totalPrize = calculateTotalPrize();
+        return (double) totalPrize / totalAmount * 100;
+    }
+
+    private long calculateTotalPrize() {
+        return rankCounts.entrySet().stream()
+                .mapToLong(entry -> entry.getKey().getPrize() * entry.getValue())
+                .sum();
     }
 
 }
