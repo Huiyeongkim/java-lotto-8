@@ -18,7 +18,9 @@ public class LottoMachine {
 
     private void validateAmount(int amount) {
         if (amount % LOTTO_PRICE != 0) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 1,000원 단위로 입력해야 합니다.");
+            throw new IllegalArgumentException(
+                    String.format("[ERROR] 구입 금액은 %d원 단위로 입력해야 합니다.", LOTTO_PRICE)
+            );
         }
     }
 

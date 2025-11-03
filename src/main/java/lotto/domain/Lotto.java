@@ -22,7 +22,9 @@ public class Lotto {
 
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+            throw new IllegalArgumentException(
+                    String.format("[ERROR] 로또 번호는 %d개여야 합니다.", LOTTO_NUMBER_COUNT)
+            );
         }
     }
 
@@ -34,7 +36,9 @@ public class Lotto {
 
     private void validateRange(List<Integer> numbers) {
         if (numbers.stream().anyMatch(this::checkRange)) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+            throw new IllegalArgumentException(
+                    String.format("[ERROR] 로또 번호는 %d부터 %d 사이의 숫자여야 합니다.", MIN_NUMBER, MAX_NUMBER)
+            );
         }
     }
 
