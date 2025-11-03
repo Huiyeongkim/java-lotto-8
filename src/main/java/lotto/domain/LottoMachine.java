@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class LottoMachine {
+import static lotto.domain.LottoNumber.*;
 
-    private static final int LOTTO_PRICE = 1000;
-    private static final int MIN_LOTTO_NUMBER = 1;
-    private static final int MAX_LOTTO_NUMBER = 45;
-    private static final int LOTTO_NUMBER_COUNT = 6;
+public class LottoMachine {
 
     public List<Lotto> purchaseLotto(int amount) {
         validateAmount(amount);
@@ -39,7 +36,7 @@ public class LottoMachine {
 
     private Lotto generateLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(
-                MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER, LOTTO_NUMBER_COUNT
+                MIN_NUMBER, MAX_NUMBER, LOTTO_NUMBER_COUNT
         );
 
         List<Integer> sortedNumbers = new ArrayList<>(numbers);

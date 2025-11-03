@@ -3,11 +3,9 @@ package lotto.domain;
 import java.util.HashSet;
 import java.util.List;
 
-public class Lotto {
+import static lotto.domain.LottoNumber.*;
 
-    private static final int LOTTO_NUMBER_COUNT = 6;
-    private static final int MIN_LOTTO_NUMBER = 1;
-    private static final int MAX_LOTTO_NUMBER = 45;
+public class Lotto {
 
     private final List<Integer> numbers;
 
@@ -41,7 +39,7 @@ public class Lotto {
     }
 
     private boolean checkRange(int number) {
-        return number < MIN_LOTTO_NUMBER || number > MAX_LOTTO_NUMBER;
+        return number < MIN_NUMBER || number > MAX_NUMBER;
     }
 
     public int countMatch(List<Integer> winningNumbers) {

@@ -1,11 +1,8 @@
 package lotto.domain;
 
-import java.util.List;
+import static lotto.domain.LottoNumber.*;
 
 public class WinningLotto {
-
-    private static final int MIN_BONUS_NUMBER = 1;
-    private static final int MAX_BONUS_NUMBER = 45;
 
     private final Lotto winningNumbers;
     private final int bonusNumber;
@@ -18,7 +15,7 @@ public class WinningLotto {
     }
 
     private void validateBonusNumber(int bonusNumber) {
-        if (bonusNumber < MIN_BONUS_NUMBER || bonusNumber > MAX_BONUS_NUMBER) {
+        if (bonusNumber < MIN_NUMBER || bonusNumber > MAX_NUMBER) {
             throw new IllegalArgumentException("[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.");
         }
     }
